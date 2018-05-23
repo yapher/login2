@@ -1,0 +1,77 @@
+<h4>LISTADO DE INQUILINOS</h4>
+<table class="table table-hover table-dark">
+  <thead>
+      <tr>
+          <th>
+            <input type="text" class="form-control" [(ngModel)]="filterargs" placeholder="Buscar Apellido">
+          </th>
+          <th></th>
+          <th>
+            <input type="number" class="form-control" [(ngModel)]="documentos" placeholder="Busca documento">
+          </th>
+          <th></th>
+        </tr>
+    <tr>
+      <th >APELLIDO</th>
+      <th >NOMBRE</th>
+      <th >DOCUMENTO</th>
+      <th >DOMICILIO</th>
+      <th >TELEFONO PARTICULAR</th>
+      <th >TELEFONO CELULAR</th>
+      <th >MAIL</th>
+      <th></th>
+    </tr>
+   
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of listado | filtroInquilinos:'documento':documentos | filtroInquilinos:'apellido':filterargs">
+      <td class="item-descripcion">
+        {{item.apellido | uppercase}}
+        
+      </td>
+      <td>
+        {{item.nombre | uppercase}}
+      </td>
+      <td>
+        {{item.documento}}
+      </td>
+      <td>
+        {{item.domicilio}}
+      </td>
+      <td>
+        {{item.telefono_particular}}
+      </td>
+      <td>
+        {{item.telefono_celular}}
+      </td>
+      <td>
+        {{item.mail}}
+      </td>
+      <td >
+      <span class="item-opciones">
+          <a [routerLink]="['/detalles', item.idpersona, 5]" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-edit"></i> Editar</a>
+          <button class="btn btn-danger btn-xs" (click)="confirmacion(item)" data-toggle="modal" data-target=".bs-example-modal-sm"><i class="glyphicon glyphicon-erase"></i> Eliminar</button>
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">CONFIRMACION</h4>
+      </div>
+      <div class="modal-body">
+        DESEAS ELIMINAR EL REGISTRO?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" (click)="borrarPersonas()" data-dismiss="modal">Borrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+

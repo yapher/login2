@@ -1,0 +1,75 @@
+.menu{
+    background-color: #09090bb3 !important;
+}
+
+.logo-icon {
+  display: inline-block;
+  width: 8em;
+  height: 3em;
+  vertical-align: middle;
+  content: "";
+  background: no-repeat center center;
+  background-size: 100% 100%;
+}
+
+.Submenu :hover{
+    background-color: #2e9b2e99 !important;
+}
+
+.letrasMenu {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: rgba(252, 243, 243) !important;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+    border-color: rgba(255, 249, 249, 0.1)!important;
+    color: #fff!important;
+}
+
+
+.dropdown-submenu {
+    position: relative;
+  }
+  
+  .dropdown-submenu > .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: 0;
+    border-radius: 0.25rem;
+  }
+  
+  .dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown-submenu > a::after {
+  border-bottom: 0.3em solid transparent;
+  border-left-color: inherit;
+  border-left-style: solid;
+  border-left-width: 0.3em;
+  border-top: 0.3em solid transparent;
+  content: " ";
+  display: block;
+  float: right;
+  height: 0;
+  margin-right: -0.6em;
+  margin-top: -0.95em;
+  width: 0;
+  }
+  
+  .dropdown-submenu.pull-left {
+    float: none;
+  }
+  
+  .dropdown-submenu.pull-left > .dropdown-menu {
+    left: -75%;
+  }
+  
+  .dropdown-menu .divider {
+  background-color: #e5e5e5;
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  }
