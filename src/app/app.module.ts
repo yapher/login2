@@ -12,6 +12,7 @@ import { HeaderComponent } from './component/pagina/header/header.component';
 import { HomeComponent } from './component/pagina/home/home.component';
 import { ListadoComponent } from './component/inquilinos/listado/listado.component';
 import { NuevoComponent } from './component/inquilinos/nuevo/nuevo.component';
+import { AplicComponent } from './component/pagina/aplic/aplic.component';
 
 //servicios
 import { ServiceInquilinoService } from './services/service-inquilino.service';
@@ -27,6 +28,7 @@ import {FiltroInquilinosPipe} from './component/inquilinos/filtrarInquilino';
 
 //google maps
 import { AgmCoreModule } from '@agm/core';
+import { Submenu1Component } from './component/pagina/submenu1/submenu1.component';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { AgmCoreModule } from '@agm/core';
     HeaderComponent,
     HomeComponent,
     ListadoComponent,
-    NuevoComponent
+    NuevoComponent,
+    AplicComponent,
+    Submenu1Component
   ],
   imports: [
     BrowserModule,

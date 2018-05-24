@@ -1,0 +1,14 @@
+<div *ngFor="let item of submenues" class="dropdown-submenu ">
+  <button class="btn btn-outline-primary btn-block letrasMenu" type="button">
+    <span class="icon is-small">
+      <i class={{item.icono}}></i>
+    </span>
+    &nbsp;&nbsp;&nbsp;{{item.nombresub1}}&nbsp;&nbsp;&nbsp;
+    <span class="icon is-large">
+      <i class="fas fa-angle-right"></i>
+    </span>
+  </button>
+  <div class="dropdown-menu menu " aria-labelledby="navbarDropdown">
+    <app-aplic [idSubMenu1]=item.idsubmenu1></app-aplic>
+  </div>
+</div>  
