@@ -29,6 +29,9 @@ import {FiltroInquilinosPipe} from './component/inquilinos/filtrarInquilino';
 //google maps
 import { AgmCoreModule } from '@agm/core';
 import { Submenu1Component } from './component/pagina/submenu1/submenu1.component';
+import { PdfComponent } from './component/aplicaciones/pdf/pdf.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+
 
 
 @NgModule({
@@ -40,13 +43,15 @@ import { Submenu1Component } from './component/pagina/submenu1/submenu1.componen
     ListadoComponent,
     NuevoComponent,
     AplicComponent,
-    Submenu1Component
+    Submenu1Component,
+    PdfComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule,
     FormsModule,
+    PdfViewerModule,
     SlimLoadingBarModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAVA8B_hlnYoHWH6I0FtcuMIFwDifHHTe0'
