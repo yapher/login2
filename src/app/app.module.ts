@@ -32,6 +32,7 @@ import { AgmCoreModule } from '@agm/core';
 import { Submenu1Component } from './component/pagina/submenu1/submenu1.component';
 import { PdfComponent } from './component/aplicaciones/pdf/pdf.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { NewPersonComponent } from './component/inquilinos/new-person/new-person.component';
 
 
 
@@ -45,7 +46,8 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     NuevoComponent,
     AplicComponent,
     Submenu1Component,
-    PdfComponent
+    PdfComponent,
+    NewPersonComponent
   ],
   imports: [
     BrowserModule,

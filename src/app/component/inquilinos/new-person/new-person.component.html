@@ -1,0 +1,130 @@
+<p class="letrasMenu">
+  Nuevo Inquilino
+</p>
+
+<form (ngSubmit)="guardarPersona()">
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class='form-group'>
+        <label for='item.apellido' class="letrasMenu">APELLIDOS:</label>
+        <input name="apellido"  type='text' required [(ngModel)]='item.apellido' 
+          class='form-control' placeholder='APELLIDOS' #apellido="ngModel" required minlength="4">
+        <div *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)" class="alert alert-danger" style="margin-top:5px;">
+          <div *ngIf="apellido.errors.required">
+            El apellido es requerido!
+          </div>
+          <div *ngIf="apellido.errors.minlength">
+            El apellido debe tener minimo 4 caracteres
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
+      <div class="col-md-6">
+        <div class='form-group'>
+          <label for='item.nombre'class="letrasMenu">NOMBRES:</label>
+          <input name="nombre"  type='text' required [(ngModel)]='item.nombre' 
+            class='form-control' placeholder='NOMBRES' #nombre="ngModel" required minlength="2">
+          <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger" style="margin-top:5px;">
+            <div *ngIf="nombre.errors.required">
+              El nombre es requerido!
+            </div>
+            <div *ngIf="nombre.errors.minlength">
+              El nombre debe tener minimo 2 caracteres
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+    <div class="col-md-4">
+      <div class='form-group'>
+        <label for=''class="letrasMenu">DOCUMENTO</label>
+        <input name='documento' type='number' required [(ngModel)]='item.documento' class='form-control' placeholder='00000000' #documento='ngModel' required min='0'>
+        <div *ngIf='documento.invalid && (documento.dirty || documento.touched)' class='alert alert-danger' style="margin-top:5px;">
+          <div *ngIf='documento.errors.required'>
+            Este campo es requerido
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      <div class="col-md-6">
+        <div class='form-group'>
+          <label for='item.domicilio'class="letrasMenu">DOMICILIO:</label>
+          <input name="domicilio"  type='text' required [(ngModel)]='item.domicilio' 
+            class='form-control' placeholder='Ingrese domicilio' #domicilio="ngModel" required minlength="2">
+          <div *ngIf="domicilio.invalid && (domicilio.dirty || domicilio.touched)" class="alert alert-danger" style="margin-top:5px;">
+            <div *ngIf="domicilio.errors.required">
+              El nombre es requerido!
+            </div>
+            <div *ngIf="domicilio.errors.minlength">
+              El domicilio debe tener minimo 2 caracteres
+            </div>
+          </div>
+        </div>
+      </div>
+     </div>
+
+     <div class="row">
+        <div class="col-md-6">
+          <div class='form-group'>
+            <label for='item.telefono_particular'class="letrasMenu">TELEFONO PARTICULAR:</label>
+            <input name="telefono_particular"  type='number' required [(ngModel)]='item.telefono_particular' 
+              class='form-control' placeholder='111111111111111' #telefonoparticular="ngModel" required minlength="2">
+            <div *ngIf="telefonoparticular.invalid && (telefonoparticular.dirty || telefonoparticular.touched)" class="alert alert-danger" style="margin-top:5px;">
+              <div *ngIf="telefonoparticular.errors.required">
+                El telefono es requerido!
+              </div>
+              <div *ngIf="telefonoparticular.errors.minlength">
+                El telefono debe tener minimo 2 caracteres
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class='form-group'>
+            <label for='item.telefono_celular'class="letrasMenu">TELEFONO CELULAR:</label>
+            <input name="telefono_celular"  type='number' required [(ngModel)]='item.telefono_celular' 
+              class='form-control' placeholder='111111111' #telefonocelular="ngModel" required minlength="2">
+            <div *ngIf="telefonocelular.invalid && (telefonocelular.dirty || telefonocelular.touched)" class="alert alert-danger" style="margin-top:5px;">
+              <div *ngIf="telefonocelular.errors.required">
+                El telefono es requerido!
+              </div>
+              <div *ngIf="telefonocelular.errors.minlength">
+                El telefono debe tener minimo 2 caracteres
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        
+          <div class="col-md-6">
+            <div class='form-group'>
+              <label for='item.mail'class="letrasMenu">MAIL:</label>
+              <input name="mail"  type='text' required [(ngModel)]='item.mail' 
+                class='form-control' placeholder='Ejemplo: andres@gmail.com' #mail="ngModel" required minlength="2">
+              <div *ngIf="mail.invalid && (mail.dirty || mail.touched)" class="alert alert-danger" style="margin-top:5px;">
+                <div *ngIf="mail.errors.required">
+                  El mail es requerido!
+                </div>
+                <div *ngIf="mail.errors.minlength">
+                  El mail debe tener minimo 2 caracteres
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+  
+  
+  <button type="submit" [disabled]="apellido.invalid || nombre.invalid || documento.invalid || domicilio.invalid || telefonoparticular.invalid || telefonocelular.invalid || mail.invalid" class="btn btn-success btn-xs">GUARDAR</button>
+  <a routerLink="/listperson" class="btn btn-danger btn-xs">SALIR</a>
+</form>
+
