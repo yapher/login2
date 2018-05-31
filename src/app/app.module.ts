@@ -13,6 +13,7 @@ import { HomeComponent } from './component/pagina/home/home.component';
 import { ListadoComponent } from './component/inquilinos/listado/listado.component';
 import { NuevoComponent } from './component/inquilinos/nuevo/nuevo.component';
 import { AplicComponent } from './component/pagina/aplic/aplic.component';
+import { MyDatePickerModule } from 'mydatepicker';
 
 //servicios
 import { ServiceInquilinoService } from './services/service-inquilino.service';
@@ -48,6 +49,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
   ],
   imports: [
     BrowserModule,
+    MyDatePickerModule,
     AppRoutingModule,
     HttpModule,
     FormsModule,

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-//rutas
+// rutas
 import { HeaderComponent } from './component/pagina/header/header.component';
 import { HomeComponent } from './component/pagina/home/home.component';
 import { ListadoComponent } from './component/inquilinos/listado/listado.component';
@@ -21,3 +21,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

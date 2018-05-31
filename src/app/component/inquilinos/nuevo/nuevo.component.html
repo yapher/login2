@@ -1,3 +1,139 @@
 
+<div id="alquiler" class="modal fade" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                 <!-- <h4 class="modal-title">Settings</h4> -->
+
+            </div>
+            <div class="modal-body">
+                    <form class="form-signin">
+                            <div class="text-center mb-4">
+                             
+                              <h1 class="h3 mb-3 font-weight-normal">Administración de Alquileres</h1>
+                            </div>
+
+                            
+
+                            <div class="form-group">
+                                <label for="sel1">Selecione el cliente:</label>
+                                <select class="form-control" id="sel1" onchange="activaDeuda()"  required [(ngModel)]='locador' placeholder="Unidades" [ngModelOptions]="{standalone: true}" #unidad="ngModel">
+                                  <option>Acosta Marcelo</option>
+                                  <option>Velazquez Marcelo</option>
+                                  <option>Macaluci Juan Jose </option>
+                                  <option>Garzon Cynthia Belen</option>
+                                  <option>Alegre Lorena Luciana</option>
+                                  <option>Nuñez Javier Martin</option>
+                                  <option>Rodriguez ricardo y Jaime Daniela</option>
+                                </select>
+                              </div> 
+
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class='form-group'>
+                                    <label for='item'>DESCRIPCION:</label>
+                                    <input name="name"  type='text' required [(ngModel)]='item' 
+                                      class='form-control' placeholder='DESCRIPCION' #name="ngModel" required minlength="4">
+                                    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger" style="margin-top:5px;">
+                                      <div *ngIf="name.errors.required">
+                                        La descripcion es requerida!
+                                      </div>
+                                      <div *ngIf="name.errors.minlength">
+                                        La descripcion debe tener minimo 4 caracteres
+                                      </div>
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                               
+                        </div>
+
+                              <div class="alert alert-danger alert-dismissible fade show" id="deuda" role="alert">
+                                  <strong>Posee deuda!</strong> Consultar en el historial.
+                              </div>
+
+                               
+
+                             
+                             
+
+                              <!-- <div class="fecha"> -->
+                                <!-- <div class='form-group'> -->
+                                  <!-- <label for=''>Selecione fecha de pago:</label> -->
+                                  <!-- <my-date-picker name='mydate' [options]='myDatePickerOptions' [(ngModel)]='dia'  required></my-date-picker> -->
+                                <!-- </div> -->
+                              <!-- </div> -->
+
+                              <div class="col-md-8">
+                                <div class='form-group'>
+                                  <label for=''>Selecione fecha de pago:</label>
+                                  <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]='dia' #fcompra='ngModel' required></my-date-picker>
+                                  <div *ngIf='fcompra.invalid' class='alert alert-danger' style='margin-top:5px;'>
+                                    <div *ngIf='fcompra.errors.required'>
+                                      Este campo es requerido
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                     
 
 
+                            <div class="form-label-group">
+                                <label for="pago">Entrega pago</label>
+                                <input type="text" id="pago" class="form-control" placeholder="ingrese el valor de la entrega" required autofocus>  
+                            </div> 
+
+                            <div class="form-group">
+                                <label for="sel1">Forma de Pago</label>
+                                <select class="form-control" id="sel1">
+                                  <option>Efectivo</option>
+                                  <option>Tarjeta Debito</option>
+                                  <option>Tarjeta Credito</option>
+                                  <option>Deposito Bancario</option>
+                                </select>
+                              </div> 
+
+                              <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">Comentarios</span>
+                                </div>
+                                <textarea class="form-control" aria-label="With textarea"></textarea>
+                              </div>
+                      
+                            <div class="checkbox mb-3">
+                              <label>
+                                <input type="checkbox" value="remember-me"> Pago Total
+                              </label>
+                            </div>
+
+                            <div class="checkbox ">
+                                <label>
+                                  <input type="checkbox" value="remember-me"> imprimir boleta
+                                </label>
+                              </div>
+                            
+                           
+                          </form> 
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="downloadPDF()">Confirmar Pago</button>
+                <button type="button" class="btn btn-lg btn btn-danger" data-dismiss="modal" >Cancelar</button>
+                
+            </div>
+        
+        </div>
+      
+    </div>
+
+  </div>
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#alquiler" >
+    PAGO DE ALQUILER
+  </button>
+
+
+  
