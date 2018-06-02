@@ -1,6 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {IMyDpOptions} from 'mydatepicker';
 import * as jsPDF from 'jspdf';
+import 'rxjs/add/operator/map';
+import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
+
+// importar servicio
+import {ServiceInquilinoService} from '../../../services/service-inquilino.service';
 
 
 
@@ -9,28 +14,52 @@ import * as jsPDF from 'jspdf';
   templateUrl: './nuevo.component.html',
   styleUrls: ['./nuevo.component.css']
 })
-export class NuevoComponent  {
+export class NuevoComponent implements OnInit  {
 
   item;
   locador;
+  locador2;
   direccion;
   telefono;
   localidad;
   dia;
+  listado;
+  nombre;
+  datos;
   
 
+ 
   myDatePickerOptions: IMyDpOptions = {
     // other options...
     // dateFormat: 'yyyy-mm-dd',
     dateFormat: 'dd         mm        yyyy',
 };
 
+constructor(private crudInquilino: ServiceInquilinoService, private slim: SlimLoadingBarService) {}
+
+ngOnInit() {
+  this.listarPersonas();
+  this.slim.start();
+}
+
+listarPersonas() {
+  this.slim.stop();
+  this.crudInquilino.listarPersonas()
+  .map((response) => response.json())
+  .subscribe((data) => {
+    this.listado = data;
+    this.slim.complete();
+  });
+}
+
+
+
+
 downloadPDF() {
 
-  this.direccion = 'Guido Spano Maria Del Pilar   335';
+
   this.localidad = 'San Nicolás';
-  this.telefono = '44444444444';
- 
+
   const doc = new jsPDF('p','pt','a4');
   doc.addImage('./assets/img/Recibo_X.jpg',2,2,590,820);
   doc.addImage('./assets/img/logo.png',30,8,200,70);
@@ -41,9 +70,9 @@ downloadPDF() {
   doc.setFontSize(12);
   doc.text('FECHA',350 ,99);
   doc.text(this.dia.formatted,407 ,99);
-  doc.text( this.locador,100 ,187);
-  doc.text( this.telefono,430 ,187);
-  doc.text( this.direccion,100 ,217);
+  doc.text( this.locador.apellido+', '+this.locador.nombre,100 ,187);
+  doc.text( ''+this.locador.documento,430 ,187);
+  doc.text( this.locador.domicilio,100 ,217);
   doc.text( this.localidad,430 ,217);
   doc.setFontSize(10);
   doc.text('RESPONSABLE MONOTRIBUTO',100 ,150);

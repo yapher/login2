@@ -18,16 +18,27 @@
 
                             <div class="form-group">
                                 <label for="sel1">Selecione el cliente:</label>
-                                <select class="form-control" id="sel1" onchange="activaDeuda()"  required [(ngModel)]='locador' placeholder="Unidades" [ngModelOptions]="{standalone: true}" #unidad="ngModel">
-                                  <option>Acosta Marcelo</option>
-                                  <option>Velazquez Marcelo</option>
-                                  <option>Macaluci Juan Jose </option>
-                                  <option>Garzon Cynthia Belen</option>
-                                  <option>Alegre Lorena Luciana</option>
-                                  <option>Nuñez Javier Martin</option>
-                                  <option>Rodriguez ricardo y Jaime Daniela</option>
+                                <select class="form-control" id="sel1"  required [(ngModel)]='locador' placeholder="Unidades" [ngModelOptions]="{standalone: true}" #unidad="ngModel">
+                                  <option *ngFor="let item of listado"   [ngValue]='item' > {{item.apellido | uppercase}}   {{item.nombre | uppercase}}</option>
                                 </select>
                               </div> 
+
+                              
+
+                              <!-- <div class="col-md-3"> -->
+                                <!-- <div class='form-group'> -->
+                                  <!-- <label for='locador2'>LISTA LOCADORES:</label> -->
+                                  <!-- <select required [(ngModel)]='locador2' class='form-control' placeholder="LISTA" [ngModelOptions]="{standalone: true}" #locador2="ngModel"> -->
+                                    <!-- <option value="" selected>SELECCIONE LOCADOR</option> -->
+                                    <!-- <option *ngFor="let item of listado" [value]=" item.idpersona" > {{item.apellido | uppercase}}   {{item.nombre | uppercase}}</option> -->
+                                  <!-- </select> -->
+                                  <!-- <div *ngIf="locador2.invalid && (locador2.dirty || locador2.touched)" class="alert alert-danger" style="margin-top:5px;"> -->
+                                    <!-- <div *ngIf="locador2.errors.required"> -->
+                                      <!-- El locatario es requerido! -->
+                                    <!-- </div> -->
+                                  <!-- </div> -->
+                                <!-- </div> -->
+                              <!-- </div> -->
 
                               <div class="row">
                                 <div class="col-md-6">

@@ -11,6 +11,10 @@ export class ServiceInquilinoService {
     return this.http.get('http://arquiobra.com.ar/web2018/api/personas.php?opcion=1');
   }
 
+  listarPersonasID(id: number) {
+    return this.http.get('http://arquiobra.com.ar/web2018/api/personas.php?opcion=2&id=' + id);
+  }
+
   guardarPersona(item: Object) {
     return this.http.post('http://arquiobra.com.ar/web2018/api/personas.php?opcion=3', item);
   }
@@ -31,4 +35,5 @@ export class ServiceInquilinoService {
     return this.http.get('http://arquiobra.com.ar/web2018/api/aplicaciones.php?opcion=1&sub=' + sub);
   }
 }
+
 
