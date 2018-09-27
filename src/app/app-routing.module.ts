@@ -2,14 +2,19 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // rutas
+import {HomePageComponent} from '../app/component/home-page/home-page.component';
+import {LoginPageComponent} from '../app/component/login-page/login-page.component';
+import {PrivadoPageComponent} from '../app/component/privado-page/privado-page.component';
+import {RegisterPageComponent} from '../app/component/register-page/register-page.component';
+import {NotFoundPageComponent} from '../app/component/not-found-page/not-found-page.component';
 
 
 const routes: Routes = [
-  // {path: '', component: HomeComponent},
-  // {path: 'header', component: HeaderComponent},
-  // {path: 'listado', component: ListadoComponent},
-  // {path: 'new-person', component: NewPersonComponent},
-  // {path: 'nuevo', component: NuevoComponent},
+   {path: '', component: HomePageComponent},
+   {path: 'login', component: LoginPageComponent},
+   {path: 'register', component: RegisterPageComponent},
+   {path: '**', component: NotFoundPageComponent},
+   {path: 'privado', component: PrivadoPageComponent}
   // {path: 'pdf', component: PdfComponent}
 ];
 
