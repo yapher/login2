@@ -15,12 +15,24 @@ import { ServiceInquilinoService } from './services/service-inquilino.service';
 
 // ajax
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
+import { HomePageComponent } from './component/home-page/home-page.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
+import { RegisterPageComponent } from './component/register-page/register-page.component';
+import { LoginPageComponent } from './component/login-page/login-page.component';
+import { PrivadoPageComponent } from './component/privado-page/privado-page.component';
+import { NotFoundPageComponent } from './component/not-found-page/not-found-page.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomePageComponent,
+    NavbarComponent,
+    RegisterPageComponent,
+    LoginPageComponent,
+    PrivadoPageComponent,
+    NotFoundPageComponent
   ],
   imports: [
     BrowserModule,

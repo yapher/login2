@@ -1,1 +1,27 @@
+--Instalación de dependencias
 npm i --save bootstrap popper.js jquery font-awesome bootswatch
+
+--Componentes---
+ng g c component/homePage
+ng g c component/navbar
+ng g c component/registerPage
+ng g c component/loginPage
+ng g c component/privadoPage
+ng g c component/notFoundPage
+
+--git--
+--cofiruramos github--
+echo "# login" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/yapher/login.git
+git push -u origin master
+
+--modificamos backup github --
+git status  --ver cambios
+git add .   --Agregamos los cambios
+git commit -am "instalación de dependencias"  -- creamos punto de restauración
+git push   --subimos las modificaciones al servidor de github
+
+
