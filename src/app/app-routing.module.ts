@@ -13,8 +13,8 @@ const routes: Routes = [
    {path: '', component: HomePageComponent},
    {path: 'login', component: LoginPageComponent},
    {path: 'register', component: RegisterPageComponent},
-   {path: '**', component: NotFoundPageComponent},
-   {path: 'privado', component: PrivadoPageComponent}
+   {path: 'privado', component: PrivadoPageComponent},
+   {path: '**', component: NotFoundPageComponent}
   // {path: 'pdf', component: PdfComponent}
 ];
 
